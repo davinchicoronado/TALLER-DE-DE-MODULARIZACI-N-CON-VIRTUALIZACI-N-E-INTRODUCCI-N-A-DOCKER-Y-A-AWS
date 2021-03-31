@@ -11,7 +11,7 @@ jobs:
       - run: cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
       - run: echo $(pwd)
       - run: echo $(ls)
-      - run: ls -n
+      - run: dir /s
 
 workflows:
   maven_test:
