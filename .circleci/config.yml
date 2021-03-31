@@ -9,9 +9,9 @@ jobs:
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run: cd TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
-      - run : ls -La
-      - run: mvn test -f TallerDockersAws/Tarea/App-Lb-RoundRobin
-      - run: mvn test -f TallerDockersAws/Tarea/LogService
+      - run : cd Tarea/App-Lb-RoundRobin
+      - run:  mvn test 
+
 workflows:
   maven_test:
     jobs:
