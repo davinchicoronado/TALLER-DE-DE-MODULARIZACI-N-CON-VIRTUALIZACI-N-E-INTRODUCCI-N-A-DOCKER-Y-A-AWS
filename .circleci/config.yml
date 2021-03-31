@@ -8,8 +8,9 @@ jobs:
       - image: buildpack-deps:trusty        
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
+      - run: ls -a 
       - run: cd TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
-      - run: ls -La 
+      - run: ls -a
       - run : cd Tarea
       - run : cd App-Lb-RoundRobin
       - run:  mvn test 
