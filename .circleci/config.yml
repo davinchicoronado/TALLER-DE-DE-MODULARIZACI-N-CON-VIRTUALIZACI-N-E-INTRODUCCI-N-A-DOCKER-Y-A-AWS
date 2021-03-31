@@ -5,15 +5,13 @@ orbs:
 jobs: 
   test: 
     docker:       
-      - machine: ubuntu-1604:202007-01        
+      - image: buildpack-deps:trusty        
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run: cd TallerDockersAws/Tarea
-      - run: echo $(pwd)
-      - run: echo $(ls)
       - run: mvn test -f TallerDockersAws/Tarea/App-Lb-RoundRobin
       - run: mvn test -f TallerDockersAws/Tarea/LogService
 workflows:
   maven_test:
     jobs:
-      - maven/test
+      - test
