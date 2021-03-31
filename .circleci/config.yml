@@ -8,7 +8,7 @@ jobs:
       - image: buildpack-deps:trusty        
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
-      - run: cd TallerDockersAws/Tarea
+      - run: ls -La
       - run: mvn test -f TallerDockersAws/Tarea/App-Lb-RoundRobin
       - run: mvn test -f TallerDockersAws/Tarea/LogService
 workflows:
