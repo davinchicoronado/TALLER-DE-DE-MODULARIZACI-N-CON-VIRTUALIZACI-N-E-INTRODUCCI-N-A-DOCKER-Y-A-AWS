@@ -4,8 +4,8 @@ orbs:
   maven: circleci/maven@1.1
 jobs: 
   test: 
-    docker:       
-      - image: buildpack-deps:trusty        
+    machine:
+        image: ubuntu-1604:202007-01      
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run: ls -a 
