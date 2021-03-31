@@ -9,8 +9,7 @@ jobs:
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run: 
-          command :ls -a 
-      - run: cd TallerDokersAws
+          command :cd TallerDockersAws 
       - run: echo $(pwd)
       - run: echo $(ls)
 
