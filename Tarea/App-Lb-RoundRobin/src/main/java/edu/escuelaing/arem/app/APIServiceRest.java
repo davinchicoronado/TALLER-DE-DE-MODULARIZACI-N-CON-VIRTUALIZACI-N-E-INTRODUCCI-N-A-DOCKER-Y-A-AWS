@@ -40,7 +40,7 @@ public class APIServiceRest {
     
     
      /**
-    * Permite guardar datos por medio de peticiones http por  en una base de datos MongoDB   
+    * Permite guardar datos por medio de peticiones http  en una base de datos MongoDB   
      * @param value  valor a guardar
     */
     
