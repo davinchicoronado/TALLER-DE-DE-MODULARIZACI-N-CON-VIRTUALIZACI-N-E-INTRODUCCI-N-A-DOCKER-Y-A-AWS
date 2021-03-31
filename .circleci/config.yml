@@ -10,6 +10,7 @@ jobs:
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run: ls -La
       - run: cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
+      - run: ls -La
       - run: echo $(pwd)
       - run: echo $(ls)
 
