@@ -1,29 +1,13 @@
-version: 2.1
-
 orbs:
   maven: circleci/maven@1.1
-jobs: 
-  test: 
-    docker:
-      - image: buildpack-deps:trusty
-    steps: 
-      - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
-      - run:
-          name: TestLogService
-          command: |
-            sudo apt update
-            sudo apt install maven 
-            echo Y
-            mvn -version
-            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
-            echo $(pwd)
-            uname -a
-            
-      
+version: 2.1
 workflows:
   maven_test:
     jobs:
-      - test
-        
+      - maven/test:
+          command: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git 
+                   
+         
+
           
        
