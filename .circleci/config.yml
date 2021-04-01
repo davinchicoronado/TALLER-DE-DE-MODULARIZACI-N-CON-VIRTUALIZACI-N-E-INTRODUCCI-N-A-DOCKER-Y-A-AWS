@@ -11,9 +11,9 @@ jobs:
       - run:
           name: TestLogService
           command: |
-            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogServicea
+            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
             echo $(pwd)
-            
+            mvn test
             
       - run: echo $(pwd)
 workflows:
