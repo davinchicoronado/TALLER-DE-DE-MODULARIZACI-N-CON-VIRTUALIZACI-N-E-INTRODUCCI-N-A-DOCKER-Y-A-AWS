@@ -13,10 +13,10 @@ jobs:
           command: |
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
             echo $(pwd)
-            mvn test
+            maven/test
             
       - run: echo $(pwd)
 workflows:
   maven_test:
     jobs:
-      - maven/test
+      - test
