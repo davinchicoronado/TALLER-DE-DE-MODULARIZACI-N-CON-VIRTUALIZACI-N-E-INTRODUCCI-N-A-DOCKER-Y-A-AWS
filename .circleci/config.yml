@@ -6,14 +6,15 @@ jobs:
   test: 
     docker:
       - image: buildpack-deps:trusty
-    steps:       
+    steps:  
+      - run: sudo apt install maven     
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run:
           name: TestLogService
           command: |
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
             echo $(pwd)
-            maven/test
+            mvn test
             
       - run: echo $(pwd)
 workflows:
