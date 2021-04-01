@@ -102,14 +102,14 @@ Localmente se puede ver que el html para el cliente hay una correcta ortografía
 [![CircleCI](https://app.circleci.com/pipelines/github/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.svg?style=svg)](https://app.circleci.com/pipelines/github/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS)
 
  ## Javadoc
- Para generar el javadoc de los proyectos se deberan ubicar en sus correspondientes directorios en un shell y ejecutar el siguiente comando 
+ Para generar el javadoc de los proyectos se deberan ubicar en sus correspondientes directorios en un shell y ejecutar el siguiente comando.
  
 ```
 mvn javadoc:javadoc
 ```
 Tambien podrá encontrar la documentación en el directorio target/site/apidocs.
 
-## Author 
+## Autor 
 David Leonardo Coronado
 
 ## Licencia 
