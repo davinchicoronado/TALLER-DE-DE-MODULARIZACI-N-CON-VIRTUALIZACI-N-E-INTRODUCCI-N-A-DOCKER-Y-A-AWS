@@ -12,10 +12,10 @@ jobs:
           name: TestLogService
           command: |
             git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git 
-            wget https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -P /tmp
-            sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt
-            sudo ln -s /opt/apache-maven-3.6.3 /opt/maven
-            mvn -version
+            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
+            echo $(pwd)
+            cd /home/
+            echo $(pwd)
 
       
 workflows:
