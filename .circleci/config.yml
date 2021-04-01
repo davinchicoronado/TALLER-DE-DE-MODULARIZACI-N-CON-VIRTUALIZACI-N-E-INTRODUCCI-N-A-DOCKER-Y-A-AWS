@@ -5,8 +5,7 @@ workflows:
   maven_test:
     jobs:
       - maven/test: 
-          command: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.gi
-                   echo $(pwd)
+          test_results_path: /TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
 
           
        
