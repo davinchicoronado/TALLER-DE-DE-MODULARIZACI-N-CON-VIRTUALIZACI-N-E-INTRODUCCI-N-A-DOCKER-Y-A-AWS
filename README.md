@@ -1,6 +1,6 @@
 # Taller Dockers y Aws
 ## Descripción 
-El siguiente Taller se desarrolló   dos proyectos distintos que se comunican mediante peticiones HTTP, con el objetivo de almacenar información de un usuario 
+El siguiente Taller se desarrollaron   dos proyectos distintos que se comunican mediante peticiones HTTP, con el objetivo de almacenar información de un usuario 
 estos seran almacenados en containers Dockers que de manera similar a las maquinas virtuales pueden virtualizar, pero en vez de hardware , los contenedores virtualizaran el sistema operativo de un servidor. Luego de mostrar y describir como desplegarlo localmente, se exponen muestras de como desplegarlo en una maquina Aws.
 
 ## Prerrequisitos
@@ -10,12 +10,18 @@ Para la realización y ejecución tanto del programa como de las pruebas de este
 * [Docker](https://www.docker.com). Docker, es una tecnología de creación de contenedores que permite la creación y el uso de contenedores de Linux®. La comunidad open source Docker trabaja para mejorar estas tecnologías a fin de beneficiar a todos los usuarios de forma gratuita.
 
 ## Ejecución 
-Para ejecutar el proyecto localmente, utilizando la herramienta Maven, nos dirigimos al directorios donde se encuentran alojados los proyectos, y dentro de este ejecutamos en un Shell o Símbolo del Sistema los siguientes comandos:
+Para ejecutar los proyectos localmente, utilizando la herramienta Maven, nos dirigimos al directorios donde se encuentran alojados los proyectos, y dentro de estos ejecutamos en un Shell o Símbolo del Sistema los siguientes comandos:
 
 ```
 mvn exec:java -Dexec.mainClass="edu.escuelaing.arem.app.SparkWebApp"
 mvn exec:java  -Dexec.mainClass="edu.escuelaing.arem.api.SparkWebApi"
 ```
+Luego con el siguiente comando, en cada una de las lineas de comandos de los proyectos crearemos las imagenes, y los containers haciendo referencia a estas, ademas de crear una red privada con una dirección ip para cada container, y permitir la comunicación entre ellos. (En los archivos docker-compose se puede ver con mas detalle como fueron asignadas estas direcciones).
+```
+docker-compose up -d
+```
+Para crear containers logService mas adelante se explicará como crearlos, ya que para desplegarlo en una maquina Aws es el mismo proceso.
+
 ## Implementación
 
 ### Calentamiento
