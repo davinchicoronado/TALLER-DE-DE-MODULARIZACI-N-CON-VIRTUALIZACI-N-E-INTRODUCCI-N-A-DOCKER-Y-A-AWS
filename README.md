@@ -10,13 +10,18 @@ Para la realización y ejecución tanto del programa como de las pruebas de este
 * [Docker](https://www.docker.com). Docker, es una tecnología de creación de contenedores que permite la creación y el uso de contenedores de Linux®. La comunidad open source Docker trabaja para mejorar estas tecnologías a fin de beneficiar a todos los usuarios de forma gratuita.
 
 ## Ejecución 
+Para tener el proyecto se puede descargar en un archivo zip o bien con el siguiente comando 
+```
+git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git
+```
+
 (Opcional) Para ejecutar los proyectos localmente, utilizando la herramienta Maven, nos dirigimos al directorios donde se encuentran alojados los proyectos, y dentro de estos ejecutamos en un Shell o Símbolo del Sistema los siguientes comandos:
 
 ```
 mvn exec:java -Dexec.mainClass="edu.escuelaing.arem.app.SparkWebApp"
 mvn exec:java  -Dexec.mainClass="edu.escuelaing.arem.api.SparkWebApi" 
 ```
-Luego con el siguiente comando, en cada una de las lineas de comandos de los proyectos crearemos las imagenes, y los containers haciendo referencia a estas, ademas de crear una red privada con una dirección ip para cada container, y permitir la comunicación entre ellos. (En los archivos docker-compose se puede ver con mas detalle como fueron asignadas estas direcciones).
+Luego con el siguiente comando, en cada una de las lineas de comandos de los proyectos crearemos las imagenes, y los containers haciendo referencia a estas, ademas de crear una red privada con una dirección ip para cada container, permitiendo la comunicación entre ellos. En estos contenedores se encontraran los proyectos desplegados(En los archivos docker-compose se puede ver con mas detalle como fueron asignadas estas direcciones).
 ```
 docker-compose up -d
 ```
@@ -24,13 +29,13 @@ Para crear containers logService mas adelante se explicará como crearlos, ya qu
 
 ## Implementación
 
-Del lado del cliente tenemos el proyecto App-Lb-RoundRobin y como primera instancia existe la clase SparkWebApp que proporcionará la vista al usuario, y esta consume servicios de una APIrest llamada APIServiceRest que como funcion tiene, es hacer peticiones http del lado del cliente.
-Estas peticiones las realiza con un conjunto de urls las cuales permiten hallar los logServices y en que puertos encontrarlos.
+Del lado del cliente se tiene el proyecto App-Lb-RoundRobin y como primera instancia existe la clase SparkWebApp que proporcionará la vista al usuario, y esta consume servicios de una APIrest llamada APIServiceRest que como funcion tiene, es hacer peticiones http del lado del cliente.
+Estas peticiones las realiza con un conjunto de urls las cuales permiten hallar los logServices y en que puertos encontrarlos en sus correspondientes contenedores.
  <p align="center">
     <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/conectionOthers.png?raw=true" alt="Sublime's custom image"/>
   </p>
 
-ApiServiceRest antes de hacer las peticiones http, realiza el balanceo Round Robin intercalando las urls en las peticiones, cumpliendo con el objetivo de trabajo propuesto. Ademas de proveer los servicios de consulta (queryDates) y guardado de datos (saveDates) (dadas las especificaciones)
+ApiServiceRest antes de hacer las peticiones http, realiza el balanceo Round Robin intercalando las urls en las peticiones, cumpliendo con el objetivo de trabajo propuesto. Ademas de proveer los servicios de consulta (queryDates) y guardado de datos (saveDates, dadas las especificaciones)
 
  <p align="center">
     <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/balanceRoundRobin.png?raw=true" alt="Sublime's custom image"/>
@@ -38,7 +43,11 @@ ApiServiceRest antes de hacer las peticiones http, realiza el balanceo Round Rob
 
 Las direcciones con localhost se dejan como prueba por si el desarrollador quiere tantear los proyectos ejecutandolos localmente, pero tendrá que cambiar las url en el metodo  balanceRoundRobin anteriormente descrito.
 
+Luego se puede encontrar con el proyecto LogService con la clase SparkWebApi que provee servicios de almacenamiento y consulta (saveDates , queryDates) en una base de datos Monto desplegada en un container, ademas de tener un metodo privado que le provee la colección de dicha base de datos no relacional (colección analoga a una tabla) y hacer dichas operaciones. 
 
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/conectionMongo.png?raw=true" alt="Sublime's custom image"/>
+  </p>
 
 
 
