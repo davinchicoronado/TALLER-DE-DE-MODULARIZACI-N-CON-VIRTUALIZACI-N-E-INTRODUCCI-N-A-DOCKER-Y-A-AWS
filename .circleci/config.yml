@@ -1,23 +1,26 @@
 version: 2.1
 
 orbs:
-  maven: circleci/maven@0.0.12
+  maven: circleci/maven@1.1
 jobs: 
   test: 
     docker:
       - image: buildpack-deps:trusty
-    steps:  
-      - run: sudo apt install maven     
+    steps: 
+      - run: ./mvnw package 
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
-
+      - run:
+          name: TestLogService
+          command: |
+            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
+            echo $(pwd)
+            cd Tarea/LogService
             
       - run: echo $(pwd)
 workflows:
   maven_test:
     jobs:
-      - maven/test:
-            command: |
-            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
-            echo $(pwd)
-            mvn test
-
+      - test
+        
+          
+       
