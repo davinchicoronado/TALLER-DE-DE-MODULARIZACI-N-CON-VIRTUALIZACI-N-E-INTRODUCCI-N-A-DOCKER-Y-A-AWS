@@ -13,7 +13,7 @@ jobs:
           command: |
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogServicea
             echo $(pwd)
-            mvn test
+            
             
       - run: echo $(pwd)
 workflows:
