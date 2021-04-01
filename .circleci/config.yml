@@ -22,7 +22,9 @@ jobs:
             echo $(pwd)
             cd Tarea
             echo $(pwd)
-
+            cd LogService
+            echo $(pwd)
+      - run: echo $(pwd)
 workflows:
   maven_test:
     jobs:
