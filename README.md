@@ -51,7 +51,7 @@ Luego se puede encontrar con el proyecto LogService con la clase SparkWebApi que
 
 Este proyecto se encuentra desplegado en varios contenedores, siendo 4 especificamente (el primero por el docker-compose).
 
-### Despligue Aws
+### Despliegue Aws
 
 En este punto se puede encontrar con 3 images, la primera haciendo referencia al proyecto App-Lb-RoundRobin, la segunda al proyecto LogService y la ultima a la base de datos Mongo. Conociendo esto se crearon 3 respositorios en dockerhub y a cada uno de estos se procede a subir una de estas imagenes.
 Luego se realiza todo el proceso de creación de una maquina en Aws, creando la llave y realizando sus respectivas configuraciones para acceder a ella asi como las configuraciones basicas como la instalación de docker.
@@ -96,9 +96,25 @@ Obteniendo los siguientes resultados.
     <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/resultado2.png?raw=true" alt="Sublime's custom image"/>
 </p>
 
-Localmente se puede ver que el html para el cliente hay una correcta ortografía, esto no sucede cuando se despliega en la maquina Aws, una conclusión podría ser la maquina se encuentra en Estados Unidos por tal razón su lenguaje esta en ingles y no reconoce las tildes.
+Localmente se puede ver que el html para el cliente hay una correcta ortografía, esto no sucede cuando se despliega en la maquina Aws, una conclusión podría ser que la maquina se encuentra en Estados Unidos por tal razón su lenguaje esta en ingles y no reconoce las tildes.
 
+## CircleCi
+[![CircleCI](https://app.circleci.com/pipelines/github/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.svg?style=svg)](https://app.circleci.com/pipelines/github/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS)
 
+ ## Javadoc
+ Para generar el javadoc de los proyectos se deberan ubicar en sus correspondientes directorios en un shell y ejecutar el siguiente comando 
+ 
+```
+mvn javadoc:javadoc
+```
+Tambien podrá encontrar la documentación en el directorio target/site/apidocs.
+
+## Author 
+David Leonardo Coronado
+
+## Licencia 
+
+![](https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/LICENSE)
 
 
 
