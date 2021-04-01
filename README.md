@@ -24,15 +24,9 @@ Para crear containers logService mas adelante se explicará como crearlos, ya qu
 
 ## Implementación
 
-### Calentamiento
-#### Ejercicio1
-Este se desarrollo en la clase URLParser es muy simple pero hay que saber como crear o usar una URL para poder obtener todos sus atributos.
+Del lado del cliente tenemos el proyecto App-Lb-RoundRobin y como primera instancia existe la clase SparkWebApp que proporcionará la vista al usuario, y esta consume servicios de una APIrest llamada APIServiceRest que como funcion tiene, es hacer peticiones http del lado del cliente.
+Estas peticiones las realiza con un conjunto de urls las cuales permiten hallar los logServices y en que puertos encontrarlos.
+ <p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/conectionOthers.png?raw=true" alt="Sublime's custom image"/>
+  </p>
 
-#### Ejercicio2
-Este se desarrollo en la clase URLReader que lee una URL y toda la información que pueda obtener la guardará en un archivo llamado resultado.html.
-
-
-#### Ejercicio3
-La clase EchoServer por medio de sockets recibira enteros y devolverá su cuadrado, y por la clase EchoClient leerá enteros y estos enteros se los enviará a EchoServer retornandole el cuadrado del número luego EchoClient recibirá este valor  y lo imprimirá. Para poder realizar lo anteriormente descrito deberemos ejecutar las dos clases simultaneamente.
-
-  ##  Reto 1
