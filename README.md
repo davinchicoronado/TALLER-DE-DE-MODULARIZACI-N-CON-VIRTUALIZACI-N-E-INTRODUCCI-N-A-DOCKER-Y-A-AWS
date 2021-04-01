@@ -43,11 +43,62 @@ ApiServiceRest antes de hacer las peticiones http, realiza el balanceo Round Rob
 
 Las direcciones con localhost se dejan como prueba por si el desarrollador quiere tantear los proyectos ejecutandolos localmente, pero tendrá que cambiar las url en el metodo  balanceRoundRobin anteriormente descrito.
 
-Luego se puede encontrar con el proyecto LogService con la clase SparkWebApi que provee servicios de almacenamiento y consulta (saveDates , queryDates) en una base de datos Monto desplegada en un container, ademas de tener un metodo privado que le provee la colección de dicha base de datos no relacional (colección analoga a una tabla) y hacer dichas operaciones. 
+Luego se puede encontrar con el proyecto LogService con la clase SparkWebApi que provee servicios de almacenamiento y consulta (saveDates , queryDates) en una base de datos Mongo desplegada en un container, ademas de tener un metodo privado que le provee la colección de dicha base de datos no relacional (colección analoga a una tabla) y hacer dichas operaciones. 
 
 <p align="center">
     <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/conectionMongo.png?raw=true" alt="Sublime's custom image"/>
   </p>
+
+Este proyecto se encuentra desplegado en varios contenedores, siendo 4 especificamente (el primero por el docker-compose).
+
+### Despligue Aws
+
+En este punto se puede encontrar con 3 images, la primera haciendo referencia al proyecto App-Lb-RoundRobin, la segunda al proyecto LogService y la ultima a la base de datos Mongo. Conociendo esto se crearon 3 respositorios en dockerhub y a cada uno de estos se procede a subir una de estas imagenes.
+Luego se realiza todo el proceso de creación de una maquina en Aws, creando la llave y realizando sus respectivas configuraciones para acceder a ella asi como las configuraciones basicas como la instalación de docker.
+
+Una de las facilidades de tener el archivo docker-compose es que nos permite crear algunos containers automaticamente, asi como también las redes necesarias para una buena comunicación entre los mismos. Proceso que se debe realizar manualmente en la maquina Aws.
+
+Primero se debe crear la red privada. 
+
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/createnet.png?raw=true" alt="Sublime's custom image"/>
+  </p>
+
+Como segunda instancia se crea un container que desplegará el proyecto App-Lb-RoundRobin, correspondiente al cliente. La siguiente imagen permite ver en que puerto,red y direccion será visto, ademas del repositorio asociado.
+
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/createcontainerAppclient.png?raw=true" alt="Sublime's custom image"/>
+  </p>
+
+Se repite el proceso para la creación de los otros contenedores con sus correspondientes direcciones ip, y puertos tal y como estan en el codigo java, ademas de sus correspondientes repositorios. La siguiente imagen permite ver todos los contenedores creados. 
+
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/containers.png?raw=true" alt="Sublime's custom image"/>
+</p>
+
+La siguiente imagen permite ver con mas detalle que contenedores fueron creados en dicha red.
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/netDates.png?raw=true" alt="Sublime's custom image"/>
+</p>
+
+Por ultimo definimos unas reglas de entrada para que el puerto 8088 sea visto, y se pueda ubicar la app del cliente en la maquina Aws.
+
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/reglasdeEntrada.png?raw=true" alt="Sublime's custom image"/>
+</p>
+
+Obteniendo los siguientes resultados.
+
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/resultado1.png?raw=true" alt="Sublime's custom image"/>
+</p>
+<p align="center">
+    <img src="https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/blob/master/Img/resultado2.png?raw=true" alt="Sublime's custom image"/>
+</p>
+
+Localmente se puede ver que el html para el cliente hay una correcta ortografía, esto no sucede cuando se despliega en la maquina Aws, una conclusión podría ser la maquina se encuentra en Estados Unidos por tal razón su lenguaje esta en ingles y no reconoce las tildes.
+
+
 
 
 
