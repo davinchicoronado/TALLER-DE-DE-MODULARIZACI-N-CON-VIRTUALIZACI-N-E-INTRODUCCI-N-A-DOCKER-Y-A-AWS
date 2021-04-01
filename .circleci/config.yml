@@ -20,6 +20,8 @@ jobs:
             ls -al
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
             echo $(pwd)
+            cd Tarea
+            echo $(pwd)
 
 workflows:
   maven_test:
