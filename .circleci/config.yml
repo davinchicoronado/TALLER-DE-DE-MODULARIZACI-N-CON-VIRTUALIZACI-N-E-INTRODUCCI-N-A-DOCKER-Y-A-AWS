@@ -8,22 +8,13 @@ jobs:
       - image: buildpack-deps:trusty
     steps:       
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
-      - run: ls -La
-      - run: cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
       - run:
-          name: The First Step
+          name: TestLogService
           command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-            echo $(pwd)
-            uname -a
-            ls -al
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
             echo $(pwd)
-            cd Tarea
-            echo $(pwd)
-            cd LogService
-            echo $(pwd)
+            cd Tarea/LogService
+            
       - run: echo $(pwd)
 workflows:
   maven_test:
