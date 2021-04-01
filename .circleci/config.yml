@@ -7,7 +7,6 @@ jobs:
     docker:
       - image: buildpack-deps:trusty
     steps: 
-      - run: ./mvnw package 
       - run: git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git           
       - run:
           name: TestLogService
@@ -16,7 +15,7 @@ jobs:
             echo $(pwd)
            
             
-      - run: echo $(pwd)
+      
 workflows:
   maven_test:
     jobs:
