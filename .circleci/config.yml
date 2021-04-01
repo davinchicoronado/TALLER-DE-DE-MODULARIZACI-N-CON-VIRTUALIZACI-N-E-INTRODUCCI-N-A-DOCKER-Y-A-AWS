@@ -14,7 +14,7 @@ jobs:
             git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git 
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
             echo $(pwd)
-            cd /home/circleci/project/
+            cd /home/
             echo $(pwd)
 
       
