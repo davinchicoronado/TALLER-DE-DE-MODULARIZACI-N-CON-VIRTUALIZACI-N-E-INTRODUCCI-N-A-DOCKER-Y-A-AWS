@@ -1,15 +1,27 @@
 version: 2.1
-parameters:
-  app_src_directory:
-    default: ""
-    description: /home/circleci/project/Tareas/LogService
-    type: string
+
 orbs:
   maven:  circleci/maven@0.0.12
+jobs: 
+  test: 
+    docker:
+      - image: buildpack-deps:trusty
+    steps: 
+               
+      - run:
+          name: TestLogService
+          command: |
+            git clone https://github.com/davinchicoronado/TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS.git 
+            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
+            echo $(pwd)
+            cd /home/
+            echo $(pwd)
+
+      
 workflows:
   maven_test:
     jobs:
-      - maven/test
+      - test
 
           
        
