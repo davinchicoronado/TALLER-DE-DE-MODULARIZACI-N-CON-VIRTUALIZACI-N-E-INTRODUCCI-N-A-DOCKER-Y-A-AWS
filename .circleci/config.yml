@@ -11,6 +11,9 @@ jobs:
       - run:
           name: TestLogService
           command: |
+            sudo apt update
+            sudo apt install maven
+            mvn -version
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
             echo $(pwd)
             uname -a
