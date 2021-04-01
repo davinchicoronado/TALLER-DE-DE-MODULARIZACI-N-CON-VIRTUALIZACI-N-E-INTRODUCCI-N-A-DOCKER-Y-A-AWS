@@ -18,6 +18,7 @@ jobs:
           command: |
             echo 'Hello World!'
             echo 'This is the delivery pipeline'
+            ls
 
 workflows:
   maven_test:
