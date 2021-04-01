@@ -17,7 +17,9 @@ jobs:
             echo 'This is the delivery pipeline'
             echo $(pwd)
             uname -a
-            ls TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
+            ls -al
+            cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS
+            echo $(pwd)
 
 workflows:
   maven_test:
