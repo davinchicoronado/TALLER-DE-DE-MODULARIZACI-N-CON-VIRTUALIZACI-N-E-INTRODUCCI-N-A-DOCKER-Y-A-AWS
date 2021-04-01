@@ -20,7 +20,7 @@ jobs:
 workflows:
   maven_test:
     jobs:
-      - test
+      - maven/test
 
           
        
