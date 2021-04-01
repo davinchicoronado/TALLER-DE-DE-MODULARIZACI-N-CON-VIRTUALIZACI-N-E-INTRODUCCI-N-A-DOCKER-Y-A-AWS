@@ -13,11 +13,8 @@ jobs:
           command: |
             sudo apt update 
             sudo apt install --assume-yes maven 
-            echo Y
-            mvn -version
             cd  TALLER-DE-DE-MODULARIZACI-N-CON-VIRTUALIZACI-N-E-INTRODUCCI-N-A-DOCKER-Y-A-AWS/Tarea/LogService
-            echo $(pwd)
-            uname -a
+            mvn test
             
       
 workflows:
